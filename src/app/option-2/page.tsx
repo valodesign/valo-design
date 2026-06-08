@@ -47,7 +47,61 @@ const stats = [
 
 export default function Home() {
   return (
-    <main className="option-static-header min-h-screen overflow-x-hidden bg-[#f6f7f3] text-[#17211d]">
+    <main className="min-h-screen overflow-x-hidden bg-[#f6f7f3] text-[#17211d]">
+      <header className="fixed inset-x-0 top-0 z-50">
+        <div className="bg-[#101714]/92 text-white shadow-sm backdrop-blur-md">
+          <div className="site-shell flex min-h-10 items-center justify-between gap-4 text-sm font-semibold">
+            <a
+              href="tel:+442000000000"
+              className="transition hover:text-[#f2c36b]"
+            >
+              Call: +44 (0)20 0000 0000
+            </a>
+            <a
+              href="mailto:hello@valodesign.co.uk"
+              className="hidden transition hover:text-[#f2c36b] sm:inline"
+            >
+              hello@valodesign.co.uk
+            </a>
+          </div>
+        </div>
+        <div className="border-b border-white/60 bg-white/86 shadow-[0_12px_36px_rgba(16,23,20,0.14)] backdrop-blur-md">
+          <div className="site-shell flex min-h-24 items-center justify-between gap-6 py-4">
+            <a
+              href="#top"
+              className="inline-flex shrink-0"
+              aria-label="Valo Design home"
+            >
+              <Image
+                src="/Images/1no text thick line png.png"
+                alt="Valo Design"
+                width={920}
+                height={185}
+                className="h-11 w-auto sm:h-14"
+                priority
+              />
+            </a>
+            <nav
+              aria-label="Main navigation"
+              className="hidden items-center gap-7 text-sm font-semibold text-[#2f3d35] md:flex"
+            >
+              <a className="transition hover:text-[#8f3f2f]" href="#services">
+                Services
+              </a>
+              <a className="transition hover:text-[#8f3f2f]" href="#process">
+                Process
+              </a>
+              <a className="transition hover:text-[#8f3f2f]" href="#work">
+                Work
+              </a>
+              <a className="transition hover:text-[#8f3f2f]" href="#contact">
+                Contact
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
       <section className="relative min-h-[82svh] overflow-hidden bg-[#17211d] text-white">
         <Image
           src="/residential-architecture-hero.png"
@@ -59,43 +113,10 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[#101714]/60" />
 
-        <div className="site-shell relative z-10 flex min-h-[82svh] flex-col py-6">
-          <header className="flex items-center justify-between gap-5">
-            <a
-              href="#top"
-              className="inline-flex shrink-0"
-              aria-label="Valo Design home"
-            >
-              <Image
-                src="/Images/1no text thick line white.png"
-                alt="Valo Design"
-                width={920}
-                height={185}
-                className="h-10 w-auto sm:h-12"
-              />
-            </a>
-            <nav
-              aria-label="Main navigation"
-              className="hidden items-center gap-7 text-sm font-medium text-white/82 sm:flex"
-            >
-              <a className="transition hover:text-white" href="#services">
-                Services
-              </a>
-              <a className="transition hover:text-white" href="#process">
-                Process
-              </a>
-              <a className="transition hover:text-white" href="#work">
-                Work
-              </a>
-              <a className="transition hover:text-white" href="#contact">
-                Contact
-              </a>
-            </nav>
-          </header>
-
+        <div className="site-shell relative z-10 flex min-h-[82svh] flex-col">
           <div
             id="top"
-            className="flex flex-1 items-center pt-16 pb-12 sm:pt-20"
+            className="flex flex-1 items-center pt-44 pb-12 sm:pt-48"
           >
             <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-2xl">
               <p className="mb-5 block w-fit max-w-full break-words border border-white/32 bg-white/10 px-3 py-2 text-sm font-medium leading-6 text-white/86 backdrop-blur">
