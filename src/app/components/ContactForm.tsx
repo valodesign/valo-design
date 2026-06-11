@@ -1,9 +1,8 @@
 "use client";
 
 import type { FormEvent } from "react";
+import { useState } from "react";
 import { services } from "@/app/data/services";
-
-const studioEmail = "info@valodesign.co.uk";
 
 const inputClasses =
   "mt-2 min-h-12 w-full rounded-md border border-[#d1cec4] bg-white px-4 text-base text-[#16313b] outline-none transition focus:border-[#6f7f56] focus:ring-2 focus:ring-[#6f7f56]/22";
@@ -16,10 +15,16 @@ function formValue(formData: FormData, key: string) {
 }
 
 export function ContactForm() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  const [status, setStatus] = useState<"error" | "idle" | "sent" | "submitting">(
+    "idle",
+  );
+  const [statusMessage, setStatusMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
     const name = formValue(formData, "name");
     const email = formValue(formData, "email");
     const phone = formValue(formData, "phone");
@@ -27,35 +32,59 @@ export function ContactForm() {
     const location = formValue(formData, "location");
     const message = formValue(formData, "message");
 
-    const subject = encodeURIComponent(
-      name ? `Valo Design enquiry from ${name}` : "Valo Design enquiry",
-    );
-    const body = encodeURIComponent(
-      [
-        `Name: ${name}`,
-        `Email: ${email}`,
-        phone ? `Phone: ${phone}` : "",
-        service ? `Service interest: ${service}` : "",
-        location ? `Project location: ${location}` : "",
-        "",
-        "Message:",
-        message,
-      ]
-        .filter((line) => line !== "")
-        .join("\n"),
-    );
+    setStatus("submitting");
+    setStatusMessage("");
 
-    window.location.href = `mailto:${studioEmail}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/api/contact", {
+        body: JSON.stringify({
+          company: formValue(formData, "company"),
+          email,
+          location,
+          message,
+          name,
+          phone,
+          service,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+      });
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "The message could not be sent.");
+      }
+
+      form.reset();
+      setStatus("sent");
+      setStatusMessage("Thanks, your enquiry has been sent.");
+    } catch (error) {
+      setStatus("error");
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : "The message could not be sent. Please email info@valodesign.co.uk.",
+      );
+    }
   }
 
   return (
     <form
-      action={`mailto:${studioEmail}`}
-      method="post"
-      encType="text/plain"
       onSubmit={handleSubmit}
       className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8d6cc]"
     >
+      <label className="hidden" htmlFor="company">
+        Company
+        <input
+          autoComplete="off"
+          id="company"
+          name="company"
+          tabIndex={-1}
+          type="text"
+        />
+      </label>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <label className={labelClasses} htmlFor="name">
           Name
@@ -129,10 +158,21 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
+        disabled={status === "submitting"}
         className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56] sm:w-auto"
       >
-        Send enquiry
+        {status === "submitting" ? "Sending..." : "Send enquiry"}
       </button>
+      {statusMessage ? (
+        <p
+          aria-live="polite"
+          className={`mt-4 text-sm font-semibold ${
+            status === "sent" ? "text-[#2f6f4e]" : "text-[#8f3f2f]"
+          }`}
+        >
+          {statusMessage}
+        </p>
+      ) : null}
     </form>
   );
 }

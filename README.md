@@ -14,11 +14,29 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Contact Form Email
+
+The contact form posts to `/api/contact` and sends enquiries to `info@valodesign.co.uk` using SMTP.
+
+Set these environment variables in Vercel:
+
+```bash
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_SECURE=true
+SMTP_USER=info@valodesign.co.uk
+SMTP_PASS=your-app-password
+CONTACT_FROM_EMAIL=info@valodesign.co.uk
+CONTACT_TO_EMAIL=info@valodesign.co.uk
+```
+
+For Google Workspace/Gmail, `SMTP_PASS` should be an app password rather than the normal account password.
 
 ## Learn More
 
