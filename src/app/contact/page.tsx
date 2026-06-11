@@ -16,16 +16,16 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen overflow-x-hidden bg-[#f6f7f3] text-[#17211d]">
+      <main className="min-h-screen overflow-x-hidden bg-[#f6f5ef] text-[#16313b]">
         <section className="site-shell grid grid-cols-1 gap-10 py-14 lg:grid-cols-[0.85fr_1.15fr] lg:py-20">
           <div className="min-w-0">
             <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
               Contact
             </p>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-[#17211d] sm:text-5xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight text-[#16313b] sm:text-5xl">
               Tell us about your home, plot, or interior brief.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#526057]">
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5a6870]">
               Share a few details about the project, where it is, and which
               stage you are at. Valo Design will respond with the right next
               step for the enquiry.
@@ -37,7 +37,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="mailto:info@valodesign.co.uk"
-                  className="mt-2 block break-words text-lg font-semibold text-[#17211d] transition hover:text-[#8f3f2f]"
+                  className="mt-2 block break-words text-lg font-semibold text-[#16313b] transition hover:text-[#8f3f2f]"
                 >
                   info@valodesign.co.uk
                 </a>
@@ -48,7 +48,7 @@ export default function ContactPage() {
                 </p>
                 <a
                   href="tel:07854800191"
-                  className="mt-2 block text-lg font-semibold text-[#17211d] transition hover:text-[#8f3f2f]"
+                  className="mt-2 block text-lg font-semibold text-[#16313b] transition hover:text-[#8f3f2f]"
                 >
                   07854800191
                 </a>
@@ -64,7 +64,7 @@ export default function ContactPage() {
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Services
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#17211d]">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#16313b]">
                 Choose the service that best matches the conversation.
               </h2>
             </div>
@@ -73,12 +73,12 @@ export default function ContactPage() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="rounded-lg border border-[#d8ddd2] bg-[#fbfcf8] p-5 transition hover:border-[#bfc8b8] hover:bg-white"
+                  className="rounded-lg border border-[#d8d6cc] bg-[#fbfaf5] p-5 transition hover:border-[#c4c0b4] hover:bg-white"
                 >
-                  <h3 className="text-lg font-semibold text-[#17211d]">
+                  <h3 className="text-lg font-semibold text-[#16313b]">
                     {service.title}
                   </h3>
-                  <p className="mt-3 leading-7 text-[#526057]">
+                  <p className="mt-3 leading-7 text-[#5a6870]">
                     {service.shortDescription}
                   </p>
                 </Link>

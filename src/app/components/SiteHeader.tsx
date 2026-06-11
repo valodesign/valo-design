@@ -20,7 +20,7 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
       className={
         isTransparent
           ? "relative z-20 py-6 text-white"
-          : "relative z-20 border-b border-[#d8ddd2] bg-[#f6f7f3]/95 py-4 shadow-sm backdrop-blur"
+          : "relative z-20 border-b border-[#d8d6cc] bg-[#f6f5ef]/95 py-4 shadow-sm backdrop-blur"
       }
     >
       <div className="site-shell flex items-center justify-between gap-5">
@@ -47,7 +47,7 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
           className={
             isTransparent
               ? "hidden items-center gap-7 text-sm font-medium text-white/82 sm:flex"
-              : "hidden items-center gap-7 text-sm font-semibold text-[#2f3d35] sm:flex"
+              : "hidden items-center gap-7 text-sm font-semibold text-[#264650] sm:flex"
           }
         >
           {navigation.map((item) => (

@@ -48,8 +48,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <main className="min-h-screen overflow-x-hidden bg-[#f6f7f3] text-[#17211d]">
-        <section className="relative overflow-hidden bg-[#17211d] text-white">
+      <main className="min-h-screen overflow-x-hidden bg-[#f6f5ef] text-[#16313b]">
+        <section className="relative overflow-hidden bg-[#16313b] text-white">
           <Image
             src="/residential-architecture-hero.png"
             alt="A renovated stone house with a contemporary extension at dusk"
@@ -58,7 +58,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#101714]/68" />
+          <div className="absolute inset-0 bg-[#0e2229]/68" />
           <SiteHeader variant="transparent" />
           <div className="site-shell relative z-10 flex min-h-[58svh] items-center py-16">
             <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-3xl">
@@ -74,7 +74,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#17211d] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
                 >
                   Start an enquiry
                 </Link>
@@ -95,7 +95,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Overview
               </p>
-              <h2 className="mt-3 break-words text-3xl font-semibold leading-tight text-[#17211d]">
+              <h2 className="mt-3 break-words text-3xl font-semibold leading-tight text-[#16313b]">
                 {service.intro}
               </h2>
             </div>
@@ -103,9 +103,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {service.highlights.map((highlight) => (
                 <article
                   key={highlight}
-                  className="min-w-0 rounded-lg border border-[#d8ddd2] bg-white p-5 shadow-sm"
+                  className="min-w-0 rounded-lg border border-[#d8d6cc] bg-white p-5 shadow-sm"
                 >
-                  <p className="break-words leading-7 text-[#526057]">
+                  <p className="break-words leading-7 text-[#5a6870]">
                     {highlight}
                   </p>
                 </article>
@@ -124,7 +124,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {service.deliverables.map((deliverable) => (
                   <div
                     key={deliverable}
-                    className="min-w-0 break-words border-l-4 border-[#6f7f56] bg-[#fbfcf8] px-5 py-4 text-base font-medium leading-7 text-[#2f3d35]"
+                    className="min-w-0 break-words border-l-4 border-[#6f7f56] bg-[#fbfaf5] px-5 py-4 text-base font-medium leading-7 text-[#264650]"
                   >
                     {deliverable}
                   </div>
@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {service.idealFor.map((item) => (
                   <span
                     key={item}
-                    className="rounded-md border border-[#d8ddd2] bg-[#f6f7f3] px-4 py-3 text-sm font-semibold text-[#2f3d35]"
+                    className="rounded-md border border-[#d8d6cc] bg-[#f6f5ef] px-4 py-3 text-sm font-semibold text-[#264650]"
                   >
                     {item}
                   </span>
@@ -155,7 +155,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Process
               </p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#17211d]">
+              <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#16313b]">
                 A clear route from first conversation to useful information.
               </h2>
             </div>
@@ -163,12 +163,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {service.process.map((step, index) => (
                 <li
                   key={step}
-                  className="grid min-w-0 grid-cols-[3.5rem_1fr] rounded-lg border border-[#d8ddd2] bg-[#fbfcf8] p-5"
+                  className="grid min-w-0 grid-cols-[3.5rem_1fr] rounded-lg border border-[#d8d6cc] bg-[#fbfaf5] p-5"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#17211d] text-sm font-semibold text-white">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#16313b] text-sm font-semibold text-white">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="break-words pt-1 text-lg leading-7 text-[#2f3d35]">
+                  <p className="break-words pt-1 text-lg leading-7 text-[#264650]">
                     {step}
                   </p>
                 </li>
@@ -177,7 +177,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           </div>
         </section>
 
-        <section className="bg-[#17211d] py-16 text-white">
+        <section className="bg-[#16313b] py-16 text-white">
           <div className="site-shell">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
               <div className="max-w-2xl">
@@ -190,7 +190,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-base font-semibold text-[#17211d] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
               >
                 Contact the studio
               </Link>

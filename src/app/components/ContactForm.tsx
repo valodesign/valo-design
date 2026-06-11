@@ -6,9 +6,9 @@ import { services } from "@/app/data/services";
 const studioEmail = "info@valodesign.co.uk";
 
 const inputClasses =
-  "mt-2 min-h-12 w-full rounded-md border border-[#cfd6ca] bg-white px-4 text-base text-[#17211d] outline-none transition focus:border-[#6f7f56] focus:ring-2 focus:ring-[#6f7f56]/22";
+  "mt-2 min-h-12 w-full rounded-md border border-[#d1cec4] bg-white px-4 text-base text-[#16313b] outline-none transition focus:border-[#6f7f56] focus:ring-2 focus:ring-[#6f7f56]/22";
 
-const labelClasses = "text-sm font-semibold text-[#2f3d35]";
+const labelClasses = "text-sm font-semibold text-[#264650]";
 
 function formValue(formData: FormData, key: string) {
   const value = formData.get(key);
@@ -54,7 +54,7 @@ export function ContactForm() {
       method="post"
       encType="text/plain"
       onSubmit={handleSubmit}
-      className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8ddd2]"
+      className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8d6cc]"
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <label className={labelClasses} htmlFor="name">
@@ -129,7 +129,7 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#17211d] px-5 text-base font-semibold text-white transition hover:bg-[#2f3d35] focus:outline-none focus:ring-2 focus:ring-[#6f7f56] sm:w-auto"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56] sm:w-auto"
       >
         Send enquiry
       </button>

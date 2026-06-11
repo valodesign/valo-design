@@ -3,7 +3,7 @@ import { services } from "@/app/data/services";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#17211d] py-10 text-white">
+    <footer className="bg-[#16313b] py-10 text-white">
       <div className="site-shell grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.2fr_0.8fr]">
         <div>
           <p className="text-lg font-semibold">Valo Design</p>
