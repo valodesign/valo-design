@@ -111,7 +111,7 @@ export default function Home() {
             <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-2xl">
               <p className="mb-5 block w-fit max-w-full break-words border border-white/32 bg-white/10 px-3 py-2 text-sm font-medium leading-6 text-white/86 backdrop-blur">
                 Residential architecture, interiors, and energy compliance for
-                new homes and considered renovations
+                new homes and renovations
               </p>
               <h1 className="text-5xl font-semibold leading-[1.02] text-white">
                 Valo Design
