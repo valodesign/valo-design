@@ -4,15 +4,18 @@ import { services } from "@/app/data/services";
 export function SiteFooter() {
   return (
     <footer className="bg-[#16313b] py-10 text-white">
-      <div className="site-shell grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.2fr_0.8fr]">
-        <div>
+      <div
+        className="site-shell grid grid-cols-1 gap-8 md:grid-cols-[1fr_1.2fr_0.8fr]"
+        data-stagger
+      >
+        <div data-animate="slide-right">
           <p className="text-lg font-semibold">Valo Design</p>
           <p className="mt-3 max-w-xs leading-7 text-white/72">
             Residential architecture and interiors for new homes, renovations,
             planning, detailed design, and energy compliance.
           </p>
         </div>
-        <div>
+        <div data-animate="fade">
           <p className="text-sm font-semibold uppercase text-[#f2c36b]">
             Services
           </p>
@@ -21,26 +24,26 @@ export function SiteFooter() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="text-sm font-medium text-white/76 transition hover:text-white"
+                className="motion-link text-sm font-medium text-white/76 transition hover:text-white"
               >
                 {service.title}
               </Link>
             ))}
           </div>
         </div>
-        <div>
+        <div data-animate="slide-left">
           <p className="text-sm font-semibold uppercase text-[#f2c36b]">
             Contact
           </p>
           <Link
             href="/contact"
-            className="mt-4 block break-words text-sm font-medium text-white/76 transition hover:text-white"
+            className="motion-link mt-4 block break-words text-sm font-medium text-white/76 transition hover:text-white"
           >
             info@valodesign.co.uk
           </Link>
           <a
             href="tel:07854800191"
-            className="mt-2 block text-sm font-medium text-white/76 transition hover:text-white"
+            className="motion-link mt-2 block text-sm font-medium text-white/76 transition hover:text-white"
           >
             07854800191
           </a>

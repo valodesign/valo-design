@@ -56,12 +56,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="hero-media object-cover"
           />
           <div className="absolute inset-0 bg-[#0e2229]/68" />
           <SiteHeader variant="transparent" />
           <div className="site-shell relative z-10 flex min-h-[58svh] items-center py-16">
-            <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-3xl">
+            <div
+              className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-3xl"
+              data-animate="slide-right"
+            >
               <p className="text-sm font-semibold uppercase text-[#f2c36b]">
                 Service
               </p>
@@ -74,13 +77,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                  className="motion-button inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
                 >
                   Start an enquiry
                 </Link>
                 <Link
                   href="/#services"
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/38 px-5 text-center text-base font-semibold text-white transition hover:bg-white/12 focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                  className="motion-button inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/38 px-5 text-center text-base font-semibold text-white transition hover:bg-white/12 focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
                 >
                   View all services
                 </Link>
@@ -91,7 +94,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         <section className="py-16">
           <div className="site-shell grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="min-w-0">
+            <div className="min-w-0" data-animate="slide-right">
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Overview
               </p>
@@ -99,10 +102,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {service.intro}
               </h2>
             </div>
-            <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
+            <div
+              className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2"
+              data-stagger
+            >
               {service.highlights.map((highlight) => (
                 <article
                   key={highlight}
+                  data-animate="scale"
                   className="min-w-0 rounded-lg border border-[#d8d6cc] bg-white p-5 shadow-sm"
                 >
                   <p className="break-words leading-7 text-[#5a6870]">
@@ -116,14 +123,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         <section className="bg-white py-16">
           <div className="site-shell grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
+            <div data-animate="slide-right">
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 What we produce
               </p>
-              <div className="mt-6 grid gap-3">
+              <div className="mt-6 grid gap-3" data-stagger>
                 {service.deliverables.map((deliverable) => (
                   <div
                     key={deliverable}
+                    data-animate="slide-left"
                     className="min-w-0 break-words border-l-4 border-[#6f7f56] bg-[#fbfaf5] px-5 py-4 text-base font-medium leading-7 text-[#264650]"
                   >
                     {deliverable}
@@ -131,14 +139,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 ))}
               </div>
             </div>
-            <div>
+            <div data-animate="slide-left">
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Best suited to
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3" data-stagger>
                 {service.idealFor.map((item) => (
                   <span
                     key={item}
+                    data-animate="scale"
                     className="rounded-md border border-[#d8d6cc] bg-[#f6f5ef] px-4 py-3 text-sm font-semibold text-[#264650]"
                   >
                     {item}
@@ -151,7 +160,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
         <section className="py-16">
           <div className="site-shell grid grid-cols-1 gap-10 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
+            <div data-animate="slide-right">
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Process
               </p>
@@ -159,10 +168,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 A clear route from first conversation to useful information.
               </h2>
             </div>
-            <ol className="grid gap-4">
+            <ol className="grid gap-4" data-stagger>
               {service.process.map((step, index) => (
                 <li
                   key={step}
+                  data-animate="slide-left"
                   className="grid min-w-0 grid-cols-[3.5rem_1fr] rounded-lg border border-[#d8d6cc] bg-[#fbfaf5] p-5"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#16313b] text-sm font-semibold text-white">
@@ -180,7 +190,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         <section className="bg-[#16313b] py-16 text-white">
           <div className="site-shell">
             <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-              <div className="max-w-2xl">
+              <div className="max-w-2xl" data-animate="slide-right">
                 <p className="text-sm font-semibold uppercase text-[#f2c36b]">
                   Other services
                 </p>
@@ -190,17 +200,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
               <Link
                 href="/contact"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                className="motion-button inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
               >
                 Contact the studio
               </Link>
             </div>
-            <div className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div
+              className="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+              data-stagger
+            >
               {relatedServices.map((related) => (
                 <Link
                   key={related.slug}
                   href={`/services/${related.slug}`}
-                  className="min-w-0 rounded-lg border border-white/14 bg-white/8 p-5 transition hover:bg-white/12"
+                  data-animate="scale"
+                  className="interactive-lift min-w-0 rounded-lg border border-white/14 bg-white/8 p-5 transition hover:bg-white/12"
                 >
                   <h3 className="text-lg font-semibold text-white">
                     {related.title}

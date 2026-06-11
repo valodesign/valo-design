@@ -38,7 +38,7 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="hero-media object-cover"
           />
           <div className="absolute inset-0 bg-[#0e2229]/60" />
 
@@ -49,7 +49,10 @@ export default function Home() {
               id="top"
               className="flex flex-1 items-center pt-16 pb-12 sm:pt-20"
             >
-              <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-2xl">
+              <div
+                className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-2xl"
+                data-animate="slide-right"
+              >
                 <p className="mb-5 block w-fit max-w-full break-words border border-white/32 bg-white/10 px-3 py-2 text-sm font-medium leading-6 text-white/86 backdrop-blur">
                   Residential architecture, interiors, and energy compliance
                   for new homes and considered renovations
@@ -66,13 +69,13 @@ export default function Home() {
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/contact"
-                    className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                    className="motion-button inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#f2c36b] px-5 text-center text-base font-semibold text-[#16313b] transition hover:bg-[#ffd27c] focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
                   >
                     Book a design consultation
                   </Link>
                   <a
                     href="#services"
-                    className="inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/38 px-5 text-center text-base font-semibold text-white transition hover:bg-white/12 focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
+                    className="motion-button inline-flex min-h-12 w-full items-center justify-center rounded-md border border-white/38 px-5 text-center text-base font-semibold text-white transition hover:bg-white/12 focus:outline-none focus:ring-2 focus:ring-white sm:w-auto"
                   >
                     Explore services
                   </a>
@@ -84,7 +87,10 @@ export default function Home() {
 
         <section id="services" className="py-16">
           <div className="site-shell grid grid-cols-1 gap-9 lg:grid-cols-[0.75fr_1.25fr]">
-            <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
+            <div
+              className="min-w-0 max-w-[18.5rem] sm:max-w-none"
+              data-animate="slide-right"
+            >
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Services
               </p>
@@ -93,12 +99,16 @@ export default function Home() {
                 settled.
               </h2>
             </div>
-            <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
+            <div
+              className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2"
+              data-stagger
+            >
               {services.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="group min-w-0 rounded-lg border border-[#d8d6cc] bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-[#c4c0b4] hover:shadow-md"
+                  data-animate="scale"
+                  className="interactive-lift group min-w-0 rounded-lg border border-[#d8d6cc] bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-[#c4c0b4] hover:shadow-md"
                 >
                   <h3 className="text-xl font-semibold text-[#16313b]">
                     {service.title}
@@ -116,10 +126,14 @@ export default function Home() {
         </section>
 
         <section className="bg-white py-14">
-          <div className="site-shell grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div
+            className="site-shell grid grid-cols-1 gap-5 sm:grid-cols-3"
+            data-stagger
+          >
             {stats.map((stat) => (
               <div
                 key={stat.label}
+                data-animate="slide-left"
                 className="border-l-4 border-[#6f7f56] py-2 pl-5"
               >
                 <p className="text-4xl font-semibold text-[#16313b]">
@@ -135,7 +149,10 @@ export default function Home() {
 
         <section id="process" className="py-16">
           <div className="site-shell grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
+            <div
+              className="min-w-0 max-w-[18.5rem] sm:max-w-none"
+              data-animate="slide-right"
+            >
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Process
               </p>
@@ -148,10 +165,11 @@ export default function Home() {
                 drawings, and a steady route toward construction.
               </p>
             </div>
-            <ol className="grid min-w-0 gap-4">
+            <ol className="grid min-w-0 gap-4" data-stagger>
               {process.map((step, index) => (
                 <li
                   key={step}
+                  data-animate="slide-left"
                   className="grid grid-cols-[3.5rem_1fr] items-start rounded-lg border border-[#d8d6cc] bg-[#fbfaf5] p-5"
                 >
                   <span className="flex h-10 w-10 items-center justify-center rounded-md bg-[#16313b] text-sm font-semibold text-white">
@@ -168,7 +186,7 @@ export default function Home() {
 
         <section id="work" className="bg-[#16313b] py-16 text-white">
           <div className="site-shell">
-            <div className="max-w-2xl">
+            <div className="max-w-2xl" data-animate="slide-right">
               <p className="text-sm font-semibold uppercase text-[#f2c36b]">
                 Project Types
               </p>
@@ -177,10 +195,14 @@ export default function Home() {
                 last.
               </h2>
             </div>
-            <div className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div
+              className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3"
+              data-stagger
+            >
               {projectTypes.map((type) => (
                 <div
                   key={type}
+                  data-animate="scale"
                   className="rounded-lg border border-white/14 bg-white/8 p-5 text-base font-medium text-white/90"
                 >
                   {type}
@@ -192,7 +214,10 @@ export default function Home() {
 
         <section id="contact" className="py-16">
           <div className="site-shell grid grid-cols-1 gap-8 border-t border-[#d8d6cc] pt-12 lg:grid-cols-[1fr_0.75fr]">
-            <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
+            <div
+              className="min-w-0 max-w-[18.5rem] sm:max-w-none"
+              data-animate="slide-right"
+            >
               <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
                 Contact
               </p>
@@ -207,25 +232,28 @@ export default function Home() {
                 interior, or energy compliance project.
               </p>
             </div>
-            <div className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8d6cc]">
+            <div
+              className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8d6cc]"
+              data-animate="scale"
+            >
               <p className="text-sm font-semibold uppercase text-[#6f7f56]">
                 Enquiries
               </p>
               <a
                 href="mailto:info@valodesign.co.uk"
-                className="mt-4 block break-words text-2xl font-semibold text-[#16313b] transition hover:text-[#8f3f2f]"
+                className="motion-link mt-4 block break-words text-2xl font-semibold text-[#16313b] transition hover:text-[#8f3f2f]"
               >
                 info@valodesign.co.uk
               </a>
               <a
                 href="tel:07854800191"
-                className="mt-3 block text-lg font-medium text-[#5a6870] transition hover:text-[#16313b]"
+                className="motion-link mt-3 block text-lg font-medium text-[#5a6870] transition hover:text-[#16313b]"
               >
                 07854800191
               </a>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56]"
+                className="motion-button mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56]"
               >
                 Open contact form
               </Link>

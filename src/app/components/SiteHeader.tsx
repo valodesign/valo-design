@@ -17,6 +17,7 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
 
   return (
     <header
+      data-animate="fade"
       className={
         isTransparent
           ? "relative z-20 py-6 text-white"
@@ -44,6 +45,7 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
         </Link>
         <nav
           aria-label="Main navigation"
+          data-stagger
           className={
             isTransparent
               ? "hidden items-center gap-7 text-sm font-medium text-white/82 sm:flex"
@@ -53,10 +55,11 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
           {navigation.map((item) => (
             <Link
               key={item.href}
+              data-animate="fade"
               className={
                 isTransparent
-                  ? "transition hover:text-white"
-                  : "transition hover:text-[#8f3f2f]"
+                  ? "motion-link transition hover:text-white"
+                  : "motion-link transition hover:text-[#8f3f2f]"
               }
               href={item.href}
             >

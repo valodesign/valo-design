@@ -3,6 +3,8 @@
 :root {
   --background: #f6f5ef;
   --foreground: #16313b;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -35,19 +37,178 @@ body {
 }
 
 .site-shell {
-  width: calc(100vw - 2.5rem);
+  width: min(calc(100% - 2.5rem), 80rem);
   max-width: 80rem;
   margin-inline: auto;
 }
 
 @media (min-width: 640px) {
   .site-shell {
-    width: calc(100vw - 4rem);
+    width: min(calc(100% - 4rem), 80rem);
   }
 }
 
 @media (min-width: 1024px) {
   .site-shell {
-    width: calc(100vw - 5rem);
+    width: min(calc(100% - 5rem), 80rem);
+  }
+}
+
+@keyframes hero-media-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.035);
+  }
+
+  to {
+    transform: translate3d(0.45%, 0.25%, 0) scale(1.06);
+  }
+}
+
+.hero-media {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0) scale(1.035);
+  transform-origin: center;
+  animation: hero-media-drift 32s ease-in-out 1200ms infinite alternate;
+  will-change: transform;
+}
+
+.motion-ready [data-animate] {
+  opacity: 0;
+  transform: translate3d(0, 1.75rem, 0);
+  filter: blur(0.375rem);
+  transition:
+    opacity 720ms var(--motion-ease),
+    transform 720ms var(--motion-ease),
+    filter 720ms var(--motion-ease);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.motion-ready [data-animate="fade"] {
+  transform: none;
+}
+
+.motion-ready [data-animate="scale"] {
+  transform: translate3d(0, 1rem, 0) scale(0.96);
+}
+
+.motion-ready [data-animate="slide-left"] {
+  transform: translate3d(-1.5rem, 0, 0);
+}
+
+.motion-ready [data-animate="slide-right"] {
+  transform: translate3d(1.5rem, 0, 0);
+}
+
+.motion-ready [data-animate].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+@media (max-width: 639px) {
+  .motion-ready [data-animate="slide-left"],
+  .motion-ready [data-animate="slide-right"] {
+    transform: translate3d(0, 1.25rem, 0);
+  }
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(2) {
+  --motion-delay: 80ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(3) {
+  --motion-delay: 160ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(4) {
+  --motion-delay: 240ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(5) {
+  --motion-delay: 320ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(6) {
+  --motion-delay: 400ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(7) {
+  --motion-delay: 480ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(8) {
+  --motion-delay: 560ms;
+}
+
+.motion-ready [data-stagger] > [data-animate]:nth-child(9) {
+  --motion-delay: 640ms;
+}
+
+.motion-button,
+.interactive-lift,
+.motion-link {
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 320ms var(--motion-ease),
+    color 220ms ease,
+    transform 320ms var(--motion-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .motion-button:hover {
+    transform: translate3d(0, -0.125rem, 0);
+    box-shadow: 0 1rem 2rem rgba(14, 34, 41, 0.16);
+  }
+
+  .motion-button:active {
+    transform: translate3d(0, 0, 0);
+    box-shadow: none;
+  }
+
+  .interactive-lift:hover {
+    transform: translate3d(0, -0.25rem, 0);
+    box-shadow: 0 1.25rem 2.5rem rgba(14, 34, 41, 0.12);
+  }
+
+  .motion-ready [data-animate].is-visible.motion-button:hover {
+    transform: translate3d(0, -0.125rem, 0);
+  }
+
+  .motion-ready [data-animate].is-visible.interactive-lift:hover {
+    transform: translate3d(0, -0.25rem, 0);
+  }
+
+  .motion-link:hover {
+    transform: translate3d(0.125rem, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .hero-media {
+    animation: none;
+    transform: none;
+  }
+
+  .motion-ready [data-animate],
+  .motion-reduced [data-animate] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 }

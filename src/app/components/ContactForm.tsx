@@ -73,6 +73,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
+      data-animate="scale"
       className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8d6cc]"
     >
       <label className="hidden" htmlFor="company">
@@ -159,7 +160,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56] sm:w-auto"
+        className="motion-button mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#16313b] px-5 text-base font-semibold text-white transition hover:bg-[#264650] focus:outline-none focus:ring-2 focus:ring-[#6f7f56] sm:w-auto"
       >
         {status === "submitting" ? "Sending..." : "Send enquiry"}
       </button>
