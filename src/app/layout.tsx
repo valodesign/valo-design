@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Valo Design | Residential Architecture",
+  title: "Valo Design | Residential Architecture, Interiors and Energy Compliance",
   description:
-    "Architectural services for new houses, renovations, extensions, planning support, and detailed residential design.",
+    "Architectural, interior design, and energy compliance services for new houses, renovations, planning support, detailed design, and residential interiors.",
 };
 
 export default function RootLayout({

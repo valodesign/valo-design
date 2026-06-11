@@ -7,7 +7,7 @@ const services = [
       "Bespoke homes shaped around site, light, budget, and the way each household wants to live.",
   },
   {
-    title: "Renovations",
+    title: "Renovation",
     description:
       "Careful redesign of existing houses, from whole-home remodelling to sensitive extensions.",
   },
@@ -20,6 +20,16 @@ const services = [
     title: "Detailed design",
     description:
       "Technical drawing packages, material guidance, and coordination for confident construction.",
+  },
+  {
+    title: "Interior design",
+    description:
+      "Room layouts, finishes, lighting, joinery, and furniture direction that make the architecture feel complete.",
+  },
+  {
+    title: "Energy Compliance",
+    description:
+      "SAP assessments, TM59 overheating modelling, and psi calculations to support compliant, comfortable homes.",
   },
 ];
 
@@ -36,7 +46,8 @@ const projectTypes = [
   "Whole-house refurbishments",
   "Kitchen, living, and garden connections",
   "Loft, side-return, and rear additions",
-  "Low-energy upgrades and material refreshes",
+  "Interior schemes, finishes, and furniture coordination",
+  "SAP, TM59, and psi calculation support",
 ];
 
 const stats = [
@@ -52,16 +63,16 @@ export default function Home() {
         <div className="bg-[#101714]/92 text-white shadow-sm backdrop-blur-md">
           <div className="site-shell flex min-h-10 items-center justify-between gap-4 text-sm font-semibold">
             <a
-              href="tel:+442000000000"
+              href="tel:07854800191"
               className="transition hover:text-[#f2c36b]"
             >
-              Call: +44 (0)20 0000 0000
+              Call: 07854800191
             </a>
             <a
-              href="mailto:hello@valodesign.co.uk"
+              href="mailto:info@valodesign.co.uk"
               className="hidden transition hover:text-[#f2c36b] sm:inline"
             >
-              hello@valodesign.co.uk
+              info@valodesign.co.uk
             </a>
           </div>
         </div>
@@ -120,16 +131,17 @@ export default function Home() {
           >
             <div className="w-[18.5rem] max-w-full min-w-0 sm:w-full sm:max-w-2xl">
               <p className="mb-5 block w-fit max-w-full break-words border border-white/32 bg-white/10 px-3 py-2 text-sm font-medium leading-6 text-white/86 backdrop-blur">
-                Residential architecture for new homes and considered
-                renovations
+                Residential architecture, interiors, and energy compliance for
+                new homes and considered renovations
               </p>
               <h1 className="text-5xl font-semibold leading-[1.02] text-white">
                 Valo Design
               </h1>
               <p className="mt-6 max-w-xl break-words text-lg leading-8 text-white/86">
-                Architectural design for people creating a new house, improving
-                an existing one, or bringing light, flow, and quiet detail to a
-                home that already has a story.
+                Architectural, interior design, and energy compliance support
+                for people creating a new house, improving an existing one, or
+                bringing light, flow, finishes, performance, and quiet detail to
+                a home that already has a story.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -151,7 +163,7 @@ export default function Home() {
       </section>
 
       <section id="services" className="py-16">
-        <div className="site-shell grid gap-9 lg:grid-cols-[0.75fr_1.25fr]">
+        <div className="site-shell grid grid-cols-1 gap-9 lg:grid-cols-[0.75fr_1.25fr]">
           <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
             <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
               Services
@@ -160,7 +172,7 @@ export default function Home() {
               Design support for the decisions that make a house feel settled.
             </h2>
           </div>
-          <div className="grid min-w-0 gap-4 sm:grid-cols-2">
+          <div className="grid min-w-0 grid-cols-1 gap-4 sm:grid-cols-2">
             {services.map((service) => (
               <article
                 key={service.title}
@@ -179,7 +191,7 @@ export default function Home() {
       </section>
 
       <section className="bg-white py-14">
-        <div className="site-shell grid gap-5 sm:grid-cols-3">
+        <div className="site-shell grid grid-cols-1 gap-5 sm:grid-cols-3">
           {stats.map((stat) => (
             <div
               key={stat.label}
@@ -197,7 +209,7 @@ export default function Home() {
       </section>
 
       <section id="process" className="py-16">
-        <div className="site-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="site-shell grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
             <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
               Process
@@ -237,7 +249,7 @@ export default function Home() {
               Homes with enough clarity to build and enough character to last.
             </h2>
           </div>
-          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {projectTypes.map((type) => (
               <div
                 key={type}
@@ -251,7 +263,7 @@ export default function Home() {
       </section>
 
       <section id="contact" className="py-16">
-        <div className="site-shell grid gap-8 border-t border-[#d8ddd2] pt-12 lg:grid-cols-[1fr_0.75fr]">
+        <div className="site-shell grid grid-cols-1 gap-8 border-t border-[#d8ddd2] pt-12 lg:grid-cols-[1fr_0.75fr]">
           <div className="min-w-0 max-w-[18.5rem] sm:max-w-none">
             <p className="text-sm font-semibold uppercase text-[#8f3f2f]">
               Contact
@@ -263,7 +275,8 @@ export default function Home() {
             <p className="mt-5 max-w-2xl leading-7 text-[#526057]">
               Share the address, a short brief, and where you are in the
               process. Valo Design will come back with the right next step for a
-              new-build, renovation, or extension project.
+              new-build, renovation, extension, interior, or energy compliance
+              project.
             </p>
           </div>
           <div className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#d8ddd2]">
@@ -271,19 +284,19 @@ export default function Home() {
               Enquiries
             </p>
             <a
-              href="mailto:hello@valodesign.co.uk"
+              href="mailto:info@valodesign.co.uk"
               className="mt-4 block break-words text-2xl font-semibold text-[#17211d] transition hover:text-[#8f3f2f]"
             >
-              hello@valodesign.co.uk
+              info@valodesign.co.uk
             </a>
             <a
-              href="tel:+442000000000"
+              href="tel:07854800191"
               className="mt-3 block text-lg font-medium text-[#526057] transition hover:text-[#17211d]"
             >
-              +44 (0)20 0000 0000
+              07854800191
             </a>
             <a
-              href="mailto:hello@valodesign.co.uk?subject=Residential%20architecture%20enquiry"
+              href="mailto:info@valodesign.co.uk?subject=Residential%20architecture%20enquiry"
               className="mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#17211d] px-5 text-base font-semibold text-white transition hover:bg-[#2f3d35] focus:outline-none focus:ring-2 focus:ring-[#6f7f56]"
             >
               Email the studio
