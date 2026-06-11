@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { services } from "@/app/data/services";
+import { ServicesDropdown } from "@/app/components/ServicesDropdown";
 
 const navigation = [
-  { href: "/#services", label: "Services" },
   { href: "/#process", label: "Process" },
   { href: "/#work", label: "Work" },
   { href: "/contact", label: "Contact" },
@@ -14,6 +15,10 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
   const isTransparent = variant === "transparent";
+  const serviceItems = services.map((service) => ({
+    href: `/services/${service.slug}`,
+    label: service.title,
+  }));
 
   return (
     <header
@@ -52,6 +57,10 @@ export function SiteHeader({ variant = "solid" }: SiteHeaderProps) {
               : "hidden items-center gap-7 text-sm font-semibold text-[#264650] sm:flex"
           }
         >
+          <ServicesDropdown
+            isTransparent={isTransparent}
+            items={serviceItems}
+          />
           {navigation.map((item) => (
             <Link
               key={item.href}
